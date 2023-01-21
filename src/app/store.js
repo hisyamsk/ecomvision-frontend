@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import globalReducer from 'features/globalSlice';
-import { adminApi } from 'features/apiSlice';
+import { api } from 'features/apiSlice';
+import { setupListeners } from '@reduxjs/toolkit/dist/query';
 
 export const initialState = {
   mode: 'dark',
@@ -10,9 +11,11 @@ export const initialState = {
 const store = configureStore({
   reducer: {
     global: globalReducer,
-    [adminApi.reducerPath]: adminApi.reducer,
+    [api.reducerPath]: api.reducer,
   },
-  middleware: (getDefault) => getDefault().concat(adminApi.middleware),
+  middleware: (getDefault) => getDefault().concat(api.middleware),
 });
+
+setupListeners(store);
 
 export default store;

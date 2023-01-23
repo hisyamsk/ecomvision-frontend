@@ -8,7 +8,7 @@ import { useGetCustomersQuery } from 'features/apiSlice';
 
 const Customers = () => {
   const theme = useTheme();
-  const { data, isLoading, isSuccess } = useGetCustomersQuery();
+  const { data, isLoading } = useGetCustomersQuery();
 
   const columns = [
     {

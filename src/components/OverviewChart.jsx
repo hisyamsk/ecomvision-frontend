@@ -115,7 +115,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
         legend: isDashboard
           ? ''
           : `Total ${view === 'sales' ? 'Revenue' : 'Units'} for Year`,
-        legendOffset: -40,
+        legendOffset: -60,
         legendPosition: 'middle',
       }}
       pointSize={10}
